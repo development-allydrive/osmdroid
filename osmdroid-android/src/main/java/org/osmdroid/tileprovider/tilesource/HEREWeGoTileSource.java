@@ -45,7 +45,7 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
      * Creates a MapBox TileSource. You won't be able to use it until you set the access token and map id.
      */
     public HEREWeGoTileSource() {
-        super("herewego", 1, 20, 256, ".png", mapBoxBaseUrl, COPYRIGHT);
+        super("herewego", 1, 20, 512, ".png", mapBoxBaseUrl, COPYRIGHT);
     }
 
     /**
@@ -55,7 +55,7 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
      * @since 5.1
      */
     public HEREWeGoTileSource(final Context ctx) {
-        super("herewego", 1, 20, 256, ".png", mapBoxBaseUrl, COPYRIGHT);
+        super("herewego", 1, 20, 512, ".png", mapBoxBaseUrl, COPYRIGHT);
         retrieveAppId(ctx);
         retrieveMapBoxMapId(ctx);
         retrieveAppCode(ctx);
@@ -80,7 +80,7 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
      * @since 5.1
      */
     public HEREWeGoTileSource(final String herewegoMapId, final String accesstoken, final String appCode) {
-        super("herewego" + herewegoMapId, 1, 20, 256, ".png", mapBoxBaseUrl, COPYRIGHT);
+        super("herewego" + herewegoMapId, 1, 20, 512, ".png", mapBoxBaseUrl, COPYRIGHT);
         this.appId = accesstoken;
         this.herewegoMapId = herewegoMapId;
         this.appCode = appCode;
@@ -157,9 +157,8 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
         url.append("/");
         url.append(MapTileIndex.getY(pMapTileIndex));
         url.append("/").append(getTileSizePixels()).append("/png8?");
-        url.append("app_id=").append(getAppId());
-        url.append("&app_code=").append(getAppCode());
-        url.append("&lg=pt-BR");
+        url.append("apiKey=").append(getAppId());
+        url.append("&ppi=320");
         String res = url.toString();
         //System.out.println(res);
 
