@@ -180,4 +180,22 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
     public void setAppCode(String appCode) {
         this.appCode = appCode;
     }
+    
+    public String testTileURLString() {
+        StringBuilder url = new StringBuilder(getBaseUrl().replace("{domain}", domainOverride));
+        url.append(getHerewegoMapId());
+        url.append("/");
+        url.append("1");
+        url.append("/");
+        url.append("2");
+        url.append("/");
+        url.append("3");
+        url.append("/").append(getTileSizePixels()).append("/png8?");
+        url.append("apiKey=").append(getAppId());
+        url.append("&ppi=320");
+        String res = url.toString();
+        //System.out.println(res);
+
+        return res;
+    }
 }
