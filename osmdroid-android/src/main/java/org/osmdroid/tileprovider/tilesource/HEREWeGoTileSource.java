@@ -31,11 +31,10 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
 
     private static final String COPYRIGHT = "© 1987 - 2019 HERE. All rights reserved.";
     private static final String[] mapBoxBaseUrl = new String[]{
-                    "http://1.{domain}/maptile/2.1/maptile/newest/",
-            "http://2.{domain}/maptile/2.1/maptile/newest/",
-            "http://3.{domain}/maptile/2.1/maptile/newest/",
-            "http://4.{domain}/maptile/2.1/maptile/newest/"};
-            //"https://{domain}/v3/base/mc/"};
+            "https://1.{domain}/maptile/2.1/maptile/newest/",
+            "https://2.{domain}/maptile/2.1/maptile/newest/",
+            "https://3.{domain}/maptile/2.1/maptile/newest/",
+            "https://4.{domain}/maptile/2.1/maptile/newest/"};
 
     private String herewegoMapId = "hybrid.day";
     private String appId = "";
@@ -158,8 +157,7 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
         url.append("/");
         url.append(MapTileIndex.getY(pMapTileIndex));
         url.append("/").append(getTileSizePixels()).append("/png8?");
-        //url.append("/").append("png8?style=explore.night");
-        //url.append("&apiKey=").append(getAppId());
+        url.append("apiKey=").append(getAppId());
         url.append("&ppi=320");
         String res = url.toString();
         //System.out.println(res);
