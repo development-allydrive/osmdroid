@@ -30,11 +30,14 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
     private static final String HEREWEGO_DOMAIN_OVERRIDE = "HEREWEGO_OVERRIDE";
 
     private static final String COPYRIGHT = "© 1987 - 2019 HERE. All rights reserved.";
-    private static final String[] mapBoxBaseUrl = new String[]{
+    /*private static final String[] mapBoxBaseUrl = new String[]{
             "https://1.{domain}/maptile/2.1/maptile/newest/",
             "https://2.{domain}/maptile/2.1/maptile/newest/",
             "https://3.{domain}/maptile/2.1/maptile/newest/",
-            "https://4.{domain}/maptile/2.1/maptile/newest/"};
+            "https://4.{domain}/maptile/2.1/maptile/newest/"}; */
+
+    private static final String[] mapBoxBaseUrl = new String[]{
+            "https://1.{domain}/v3/base/mc/"}; 
 
     private String herewegoMapId = "hybrid.day";
     private String appId = "";
@@ -149,16 +152,17 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
     @Override
     public String getTileURLString(final long pMapTileIndex) {
         StringBuilder url = new StringBuilder(getBaseUrl().replace("{domain}", domainOverride));
-        url.append(getHerewegoMapId());
-        url.append("/");
+        //url.append(getHerewegoMapId());
+        //url.append("/");
         url.append(MapTileIndex.getZoom(pMapTileIndex));
         url.append("/");
         url.append(MapTileIndex.getX(pMapTileIndex));
         url.append("/");
         url.append(MapTileIndex.getY(pMapTileIndex));
-        url.append("/").append(getTileSizePixels()).append("/png8?");
-        url.append("apiKey=").append(getAppId());
-        url.append("&ppi=320");
+       // url.append("/").append(getTileSizePixels()).append("/png8?");
+       url.append("/png8?");
+       url.append("apiKey=").append(getAppId());
+       //url.append("&ppi=320");
         String res = url.toString();
         //System.out.println(res);
 
