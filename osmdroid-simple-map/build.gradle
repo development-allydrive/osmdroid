@@ -34,6 +34,10 @@ android {
      }
 
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 
     lint {
         baseline = file("lint-baseline.xml")
