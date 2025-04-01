@@ -194,7 +194,7 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
         url.append("/");
         url.append("2");
         url.append("/");
-        url.append("3"));
+        url.append("3");
        // url.append("/").append("512").append("/png8?");
        url.append("/png8?");
        url.append("apiKey=").append(getAppId());
