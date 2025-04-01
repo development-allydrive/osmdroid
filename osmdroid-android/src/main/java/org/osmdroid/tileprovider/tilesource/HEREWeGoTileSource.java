@@ -37,12 +37,12 @@ public class HEREWeGoTileSource extends OnlineTileSourceBase {
             "https://4.{domain}/maptile/2.1/maptile/newest/"}; */
 
     private static final String[] mapBoxBaseUrl = new String[]{
-            "https://1.{domain}/v3/base/mc/"}; 
+            "https://{domain}/v3/base/mc/"}; 
 
     private String herewegoMapId = "hybrid.day";
     private String appId = "";
     private String appCode = "";
-    private String domainOverride = "aerial.maps.cit.api.here.com";
+    private String domainOverride = "maps.hereapi.com";
 
     /**
      * Creates a MapBox TileSource. You won't be able to use it until you set the access token and map id.
